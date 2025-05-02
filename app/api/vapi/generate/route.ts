@@ -4,7 +4,7 @@ import { getRandomInterviewCover } from "@/lib/utils";
 import { db } from "@/firebase/admin";
 
 export async function GET() {
-  return Response.json({ success: true, data: "THANK YOU!" }, { status: 200 });
+  return Response.json({ success: true, data: "Thank You!" }, { status: 200 });
 }
 
 export async function POST(request: Request) {
@@ -41,6 +41,7 @@ export async function POST(request: Request) {
     };
 
     await db.collection("interviews").add(interview);
+    console.log("interview", interview);
     return Response.json({ success: true }, { status: 200 });
   } catch (err) {
     console.error(err);
